@@ -13,6 +13,7 @@ namespace SmartStock.Models
         public string Category { get; set; }
 
         [Range(0, double.MaxValue)]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
         [Range(0, int.MaxValue)]
