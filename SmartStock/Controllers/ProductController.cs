@@ -45,14 +45,16 @@ namespace SmartStock.Controllers
        
         public IActionResult Create(Product product)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Products.Add(product);
-                TempData["success"] = "Product Created Successfully";
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                
+                return View(product);
             }
-            return View(product);
+
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            TempData["success"] = "Product Created Successfully";
+            return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
@@ -65,14 +67,15 @@ namespace SmartStock.Controllers
        
         public IActionResult Edit(Product product)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Products.Update(product);
-                TempData["success"] = "Product Updated Successfully";
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                return View(product);
             }
-            return View(product);
+
+            _context.Products.Update(product);
+            _context.SaveChanges();
+            TempData["success"] = "Product Updated Successfully";
+            return RedirectToAction("Index");
         }
         #region API CALLS
 
