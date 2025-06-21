@@ -52,10 +52,11 @@ SmartStock is a simple ASP.NET Core MVC web application designed for managing pr
 "ConnectionStrings": {
   "DefaultConnection": "YourConnectionStringHere"
 }
-
-3. Apply migrations and seed database:
+```
+3. Apply migrations, seed database and Run Project:
 
 ### Project Structure
+
 Controllers/ - MVC controllers handling web requests
 
 Models/ - Entity and view models with validation attributes
